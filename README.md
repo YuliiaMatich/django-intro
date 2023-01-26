@@ -1,3 +1,10 @@
+## Assignment screenshots
+
+!["Mobile version"](https://github.com/YuliiaMatich/django-intro/blob/master/main/static/assets/Mobile%20version.png)
+
+!["Desktop version"](https://github.com/YuliiaMatich/django-intro/blob/master/main/static/assets/Desktop%20version.png)
+
+
 This is a basic Django project designed as an introduction to Django and to test familiarity with HTML, CSS and Bootstrap  
   
 Instructions:  
