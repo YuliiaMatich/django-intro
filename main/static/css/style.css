@@ -11,6 +11,9 @@
 body {
   background-color: #ffffff;
   width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 /* make placeholder color lighter */
 ::placeholder {
@@ -174,7 +177,6 @@ select {
   color: #474747;
 }
 .container {
-  margin-bottom: 7em;
   max-width: 90em;
 }
 .btn {

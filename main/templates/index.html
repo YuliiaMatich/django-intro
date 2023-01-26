@@ -1,37 +1,122 @@
-{% extends 'base.html' %}
-{% block content %}
-<div class='container mt-5'>
-  <form method='POST'>
-    <div class='text-center'>
-      <h1>SingleKey</h1>
+{% extends 'base.html' %} {% block content %}
+<div class="text-center header">
+  <img class="logo" src="../static/assets/singlekey_logo.png" alt="logo" />
+  <button type="button" class="btn btn-outline-primary">Log In</button>
+</div>
+<div class="container px-0">
+  <div class="row mx-0">
+    <div class="purple-card-mobile mb-5 mx-0 mt-0">
+      <h3>Good morning, Alex</h3>
+      <p>
+        Here's a quick summary of your actvity so far. If you have any
+        queestions about your report, feel free to book a call with us.
+      </p>
+      <button type="button" class="btn btn-outline-light">Book a call</button>
     </div>
-    <div class='row mt-3'>
-      <div class='col'>
-        <label>Name</label><br>
-        <input name='name'>
-      </div>
-      <div class='col'>
-        <label>Email</label><br>
-        <input name='email'>
-      </div>
-    </div>
-    <br>
-    <br>
-    {% csrf_token %}
-    <div class='text-center'>
-      <button type='supmit' class='btn btn-primary'>Submit</button>
-    </div>
-  </form>
-  {% if results %}
-  <div class='w-100 text-center mt-5'>
-    <h3>Previous submissions</h3>
-      {% for i in results %}
-        <div class='text-left mb-3 p-4 card'>
-          <b>{{ i.name }}</b><br>
-          <b>{{ i.email }}</b>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-7 px-5">
+      <form method="POST">
+        <h3 class="mb-4">Submit Information</h3>
+        <div class="mb-3">
+          <label for="InputApplicantName" class="form-label"
+            >Applicant name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="InputApplicantName"
+            placeholder="Applicant name"
+          />
         </div>
-      {% endfor %}
-    {% endif %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Email address"
+          />
+        </div>
+        <div class="mb-3 form-check"></div>
+        <button type="button" class="btn btn-secondary submit-button">
+          Submit
+        </button>
+        <hr class="big-screen-hr"/>
+        <hr class="mobile-hr"/>
+        <br />
+        <br />
+        {% csrf_token %}
+      </form>
+      {% if results %}
+      <h3 class="mb-4">Submissions</h3>
+      <table class="table">
+        <thead class="table-light">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Applicant</th>
+            <th scope="col">Email</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in results %}
+          <tr>
+            <th scope="row">
+              <img
+                src="../static/assets/user.png"
+                alt="user-image"
+                style="height: 1.5rem"
+              />
+            </th>
+            <td class="table-font">{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>Submitted</td>
+          </tr>
+          {% endfor %} 
+        </tbody>
+      </table>
+      {% for i in results %}
+      <div class="table-mobile-item">
+        <div class="group-image-and-name">
+        <img
+          src="../static/assets/user.png"
+          alt="user-image"
+          style="height: 1.5rem"
+        />
+        <div class="name-and-email">
+          <div class="table-mobile-name">{{ i.name }}</div>
+          <div>{{ i.email }}</div>
+        </div>
+      </div>
+        <div class="table-mobile-status">Submitted</div>
+      </div>
+      {% endfor %} 
+      {% endif %}
+      <hr class="mobile-hr"/>
+    </div>
+    <div class="col-lg-4 mg-0">
+      <div class="purple-card mx-0 mr-lg-5">
+        <h3>Hello Alex</h3>
+        <p>
+          Here is a quick summary of your actvity so far. If you have any
+          queestions about your report feel free to book a call with us.
+        </p>
+        <button type="button" class="btn btn-outline-light">Book a call</button>
+      </div>
+      <div class="white-card mx-0 mb-0 mr-lg-5">
+        <h3>Rent Guarantee</h3>
+        <p>
+          Never miss a rent payment! Learn how our Rent Guarantee Program
+          protects your property and rental income so you can take the risk out
+          of renting.
+        </p>
+        <button type="button" class="btn btn-outline-dark">Start now</button>
+      </div>
+    </div>
   </div>
 </div>
+<footer><p>@ All rights reserved SingleKey 2021</p></footer>
 {% endblock %}
